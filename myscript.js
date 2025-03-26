@@ -4,6 +4,8 @@ let newName = "Platzhalter";
 const PREFIX = "Name ändert sich von: ";
 const SUFFIX = " auf: ";
 
+let nameHistory = [];
+
 function changeName(event) {
 
     const isAnredeFrau = document.getElementById("isfemale").checked
@@ -12,6 +14,9 @@ function changeName(event) {
 
     oldName = newName;
     newName = addAnrede(event.target.value, isAnredeFrau, isFormellChecked);
+
+    nameHistory.push(newName);
+    console.log(nameHistory);
 
     document.getElementById("oldname").innerText = oldName;
     document.getElementById("newname").innerText = newName;

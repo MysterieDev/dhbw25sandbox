@@ -9,9 +9,12 @@
 <body>
     <h1>Anrede generieren</h1>
 
+    <label for="isfemale">Anrede für Frau</label>
+    <input type="checkbox" name="isfemale" id="isfemale">
+    <br>
     <label for="">Namen ändern</label>
     <input type="text" name="newname" onchange="changeName(event)" />
-
+    <hr>
     <div> old: <p id="oldname"></p></div>
     <div> new: <p id="newname"> </p></div>
 </body>

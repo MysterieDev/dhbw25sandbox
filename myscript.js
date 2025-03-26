@@ -16,9 +16,14 @@ function changeName(event) {
     newName = addAnrede(event.target.value, isAnredeFrau, isFormellChecked);
 
     // create Object Entry
-    // DEIN CODE
+    const historyObject = {
+        name: event.target.value,
+        isFormell: isFormellChecked,
+        isAnredeFrau,
+        anrede: newName
+    }
 
-    nameHistory.push(newName);
+    nameHistory.push(historyObject);
     console.log(nameHistory);
 
     document.getElementById("oldname").innerText = oldName;
@@ -27,7 +32,7 @@ function changeName(event) {
 
 function addAnrede(name, isFemale, isFormell) {
 
-    if(!isFormell){
+    if (!isFormell) {
         return "Hey " + name;
     }
 

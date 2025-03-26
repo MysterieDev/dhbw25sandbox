@@ -5,8 +5,11 @@ const PREFIX = "Name ändert sich von: ";
 const SUFFIX = " auf: ";
 
 function changeName(event) {
+
+    const isAnredeFrau = document.getElementById("isfemale").checked
+
     oldName = newName;
-    newName = addAnrede(event.target.value, false);
+    newName = addAnrede(event.target.value, isAnredeFrau);
 
     document.getElementById("oldname").innerText = oldName;
     document.getElementById("newname").innerText = newName;

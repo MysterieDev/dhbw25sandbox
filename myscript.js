@@ -15,6 +15,9 @@ function changeName(event) {
     oldName = newName;
     newName = addAnrede(event.target.value, isAnredeFrau, isFormellChecked);
 
+    // create Object Entry
+    // DEIN CODE
+
     nameHistory.push(newName);
     console.log(nameHistory);
 

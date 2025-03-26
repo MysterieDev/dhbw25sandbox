@@ -7,6 +7,8 @@ const SUFFIX = " auf: ";
 function changeName(event) {
 
     const isAnredeFrau = document.getElementById("isfemale").checked
+    const isFormell = document.getElementById("isformell").checked
+
 
     oldName = newName;
     newName = addAnrede(event.target.value, isAnredeFrau);

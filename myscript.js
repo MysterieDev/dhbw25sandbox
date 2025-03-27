@@ -73,3 +73,17 @@ anredeForm.addEventListener("submit", (ev)=>{
     ev.preventDefault();
     changeName();
 })
+
+const previewInputs = ["#isfemale", "#isformell", "#newname_input"];
+
+previewInputs.forEach((inputid)=>{
+    document.querySelector(inputid).addEventListener("input",()=>{
+
+    const isAnredeFrau = document.querySelector("#isfemale").checked
+    const isFormellChecked = document.querySelector("#isformell").checked
+    const newnameInputValue = document.querySelector("#newname_input").value;
+
+    const previewContent = addAnrede(newnameInputValue, isAnredeFrau, isFormellChecked);
+    document.querySelector("#preview").innerText = previewContent;
+    })
+})

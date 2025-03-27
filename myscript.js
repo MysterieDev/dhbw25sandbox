@@ -11,6 +11,7 @@ function changeName() {
     const isAnredeFrau = document.querySelector("#isfemale").checked
     const isFormellChecked = document.querySelector("#isformell").checked
     const nachname = document.querySelector("#nachname").value;
+    const vorname = document.querySelector("#vorname").value;
 
     if(!isInputValid(nachname)){
         alert("Bitte gebe einen Namen ein.");
@@ -44,8 +45,8 @@ function changeHtml(){
     document.querySelector("#newname").innerText = newName;
 }
 
-function isInputValid(nameValue){
-    if(nameValue.trim().length === 0){
+function isInputValid(vorname, nachname){
+    if(vorname.trim().length === 0 || nachname.trim().length === 0){
         return false
     }
     return true

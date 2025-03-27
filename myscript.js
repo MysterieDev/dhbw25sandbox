@@ -6,18 +6,23 @@ const SUFFIX = " auf: ";
 
 let nameHistory = [];
 
-function changeName(event) {
+function changeName() {
 
     const isAnredeFrau = document.querySelector("#isfemale").checked
     const isFormellChecked = document.querySelector("#isformell").checked
+    const newnameInputValue = document.querySelector("#newname_input").value;
 
+    if(!isInputValid(newnameInputValue)){
+        alert("Bitte gebe einen Namen ein.");
+        return; // Funktion wird beendet
+    }
 
     oldName = newName;
-    newName = addAnrede(event.target.value, isAnredeFrau, isFormellChecked);
+    newName = addAnrede(newnameInputValue, isAnredeFrau, isFormellChecked);
 
     // create Object Entry
     const historyObject = {
-        name: event.target.value,
+        name: newnameInputValue,
         isFormell: isFormellChecked,
         isAnredeFrau,
         anrede: newName
@@ -39,6 +44,13 @@ function changeHtml(){
     document.querySelector("#newname").innerText = newName;
 }
 
+function isInputValid(nameValue){
+    if(nameValue.trim().length === 0){
+        return false
+    }
+    return true
+}
+
 function addAnrede(name, isFemale, isFormell) {
 
     if (!isFormell) {
@@ -54,3 +66,10 @@ function addAnrede(name, isFemale, isFormell) {
 }
 
 document.querySelector("h1").classList.add("fontblue");
+
+const anredeForm = document.querySelector("#mailbastler_form");
+
+anredeForm.addEventListener("submit", (ev)=>{
+    ev.preventDefault();
+    changeName();
+})

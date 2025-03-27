@@ -26,7 +26,13 @@ function changeName(event) {
     nameHistory.push(historyObject);
     console.log(nameHistory);
 
-    document.getElementById("oldname").innerText = oldName;
+    
+    document.getElementById("oldname").innerHTML = "";
+
+    for(let element of nameHistory){
+      document.getElementById("oldname").innerHTML += element.anrede + "<br>"
+    }
+
     document.getElementById("newname").innerText = newName;
 }
 

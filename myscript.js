@@ -13,7 +13,7 @@ function changeName() {
     const nachname = document.querySelector("#nachname").value;
     const vorname = document.querySelector("#vorname").value;
 
-    if(!isInputValid(vorname, nachname)){
+    if (!isInputValid(vorname, nachname)) {
         alert("Bitte gebe einen Namen ein.");
         return; // Funktion wird beendet
     }
@@ -31,22 +31,22 @@ function changeName() {
 
     nameHistory.push(historyObject);
     console.log(nameHistory);
-   
+
     changeHtml();
 }
 
-function changeHtml(){
+function changeHtml() {
     document.querySelector("#oldname").innerHTML = "";
 
-    for(let element of nameHistory){
-      document.querySelector("#oldname").innerHTML += element.anrede + "<br>"
+    for (let element of nameHistory) {
+        document.querySelector("#oldname").innerHTML += element.anrede + "<br>"
     }
 
     document.querySelector("#newname").innerText = newName;
 }
 
-function isInputValid(vorname, nachname){
-    if(vorname.trim().length === 0 || nachname.trim().length === 0){
+function isInputValid(vorname, nachname) {
+    if (vorname.trim().length === 0 || nachname.trim().length === 0) {
         return false
     }
     return true
@@ -70,21 +70,21 @@ document.querySelector("h1").classList.add("fontblue");
 
 const anredeForm = document.querySelector("#mailbastler_form");
 
-anredeForm.addEventListener("submit", (ev)=>{
+anredeForm.addEventListener("submit", (ev) => {
     ev.preventDefault();
     changeName();
 })
 
 const previewInputs = ["#isfemale", "#isformell", "#nachname", "#vorname"];
 
-previewInputs.forEach((inputid)=>{
-    document.querySelector(inputid).addEventListener("input",()=>{
+previewInputs.forEach((inputid) => {
+    document.querySelector(inputid).addEventListener("input", () => {
 
-    const isAnredeFrau = document.querySelector("#isfemale").checked
-    const isFormellChecked = document.querySelector("#isformell").checked
-    const nachname = document.querySelector("#nachname").value;
-    const vorname = document.querySelector("#vorname").value;
-    const previewContent = addAnrede(vorname, nachname, isAnredeFrau, isFormellChecked);
-    document.querySelector("#preview").innerText = previewContent;
+        const isAnredeFrau = document.querySelector("#isfemale").checked
+        const isFormellChecked = document.querySelector("#isformell").checked
+        const nachname = document.querySelector("#nachname").value;
+        const vorname = document.querySelector("#vorname").value;
+        const previewContent = addAnrede(vorname, nachname, isAnredeFrau, isFormellChecked);
+        document.querySelector("#preview").innerText = previewContent;
     })
 })

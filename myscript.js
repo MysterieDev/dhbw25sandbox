@@ -8,8 +8,8 @@ let nameHistory = [];
 
 function changeName(event) {
 
-    const isAnredeFrau = document.getElementById("isfemale").checked
-    const isFormellChecked = document.getElementById("isformell").checked
+    const isAnredeFrau = document.querySelector("#isfemale").checked
+    const isFormellChecked = document.querySelector("#isformell").checked
 
 
     oldName = newName;
@@ -25,15 +25,18 @@ function changeName(event) {
 
     nameHistory.push(historyObject);
     console.log(nameHistory);
+   
+    changeHtml();
+}
 
-    
-    document.getElementById("oldname").innerHTML = "";
+function changeHtml(){
+    document.querySelector("#oldname").innerHTML = "";
 
     for(let element of nameHistory){
-      document.getElementById("oldname").innerHTML += element.anrede + "<br>"
+      document.querySelector("#oldname").innerHTML += element.anrede + "<br>"
     }
 
-    document.getElementById("newname").innerText = newName;
+    document.querySelector("#newname").innerText = newName;
 }
 
 function addAnrede(name, isFemale, isFormell) {

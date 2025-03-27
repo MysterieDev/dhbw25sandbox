@@ -13,13 +13,13 @@ function changeName() {
     const nachname = document.querySelector("#nachname").value;
     const vorname = document.querySelector("#vorname").value;
 
-    if(!isInputValid(nachname)){
+    if(!isInputValid(vorname, nachname)){
         alert("Bitte gebe einen Namen ein.");
         return; // Funktion wird beendet
     }
 
     oldName = newName;
-    newName = addAnrede(nachname, isAnredeFrau, isFormellChecked);
+    newName = addAnrede(vorname, nachname, isAnredeFrau, isFormellChecked);
 
     // create Object Entry
     const historyObject = {
@@ -52,17 +52,17 @@ function isInputValid(vorname, nachname){
     return true
 }
 
-function addAnrede(name, isFemale, isFormell) {
+function addAnrede(vorname, nachname, isFemale, isFormell) {
 
     if (!isFormell) {
-        return "Hey " + name;
+        return "Hey " + vorname;
     }
 
     if (isFemale) {
-        return "Sehr geehrte Frau " + name;
+        return "Sehr geehrte Frau " + nachname;
     }
     else {
-        return "Sehr geehrter Herr " + name;
+        return "Sehr geehrter Herr " + nachname;
     }
 }
 
@@ -83,8 +83,8 @@ previewInputs.forEach((inputid)=>{
     const isAnredeFrau = document.querySelector("#isfemale").checked
     const isFormellChecked = document.querySelector("#isformell").checked
     const nachname = document.querySelector("#nachname").value;
-
-    const previewContent = addAnrede(nachname, isAnredeFrau, isFormellChecked);
+    const vorname = document.querySelector("#vorname").value;
+    const previewContent = addAnrede(vorname, nachname, isAnredeFrau, isFormellChecked);
     document.querySelector("#preview").innerText = previewContent;
     })
 })

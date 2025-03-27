@@ -87,3 +87,22 @@ previewInputs.forEach((inputid) => {
         document.querySelector("#preview").innerText = previewContent;
     })
 })
+
+const selectRef = document.querySelector("#vorname_preselect")
+
+fetch("http://localhost:5500/names.json")
+.then(res => res.json())
+.then(jsonArr => {
+    jsonArr.forEach((name)=>{
+        const option = document.createElement("option");
+        option.value = name;
+        option.text = name;
+
+        selectRef.appendChild(option);
+    })
+});
+
+selectRef.addEventListener("change", (ev) =>{
+    document.querySelector("#vorname").value = selectRef.value();
+})
+

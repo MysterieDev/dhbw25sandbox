@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="./myscript.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/bamboo.css">
-<link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/bamboo.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
     <h1>Anrede generieren</h1>
 
-    <label for="isfemale">Anrede für Frau</label>
-    <input type="checkbox" name="isfemale" id="isfemale">
-    <br>
-    <label for="isformell">Formelle Anrede</label>
-    <input type="checkbox" name="isformell" id="isformell">
-    <br>
-    <label for="">Namen ändern</label>
-    <input type="text" name="newname" id="newname" onchange="changeName(event)" />
+    <form id="mailbastler_form">
+        <label for="isfemale">Anrede für Frau</label>
+        <input type="checkbox" name="isfemale" id="isfemale">
+        <br>
+        <label for="isformell">Formelle Anrede</label>
+        <input type="checkbox" name="isformell" id="isformell">
+        <br>
+        <label for="">Namen ändern</label>
+        <input type="text" name="newname" id="newname"/>
+        <input type="submit" value="Anrede generieren">
+    </form>
     <hr>
-    <div> old: <p id="oldname"></p></div>
-    <div> new: <p id="newname"> </p></div>
+    <div> old: <p id="oldname"></p>
+    </div>
+    <div> new: <p id="newname"> </p>
+    </div>
 </body>
+
 </html>

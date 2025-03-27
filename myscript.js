@@ -49,3 +49,5 @@ function addAnrede(name, isFemale, isFormell) {
         return "Sehr geehrter Herr " + name;
     }
 }
+
+document.querySelector("h1").classList.add("fontblue");

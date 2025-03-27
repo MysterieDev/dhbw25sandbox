@@ -78,15 +78,18 @@ const previewInputs = ["#isfemale", "#isformell", "#nachname", "#vorname"];
 
 previewInputs.forEach((inputid) => {
     document.querySelector(inputid).addEventListener("input", () => {
+        updatePreview();
+    })
+})
 
+function updatePreview(){
         const isAnredeFrau = document.querySelector("#isfemale").checked
         const isFormellChecked = document.querySelector("#isformell").checked
         const nachname = document.querySelector("#nachname").value;
         const vorname = document.querySelector("#vorname").value;
         const previewContent = addAnrede(vorname, nachname, isAnredeFrau, isFormellChecked);
         document.querySelector("#preview").innerText = previewContent;
-    })
-})
+}
 
 const selectRef = document.querySelector("#vorname_preselect")
 
@@ -103,6 +106,7 @@ fetch("http://localhost:5500/names.json")
 });
 
 selectRef.addEventListener("change", (ev) =>{
-    document.querySelector("#vorname").value = selectRef.value();
+    document.querySelector("#vorname").value = selectRef.value;
+    updatePreview();
 })
 

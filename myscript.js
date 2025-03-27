@@ -10,19 +10,19 @@ function changeName() {
 
     const isAnredeFrau = document.querySelector("#isfemale").checked
     const isFormellChecked = document.querySelector("#isformell").checked
-    const newnameInputValue = document.querySelector("#newname_input").value;
+    const nachname = document.querySelector("#nachname").value;
 
-    if(!isInputValid(newnameInputValue)){
+    if(!isInputValid(nachname)){
         alert("Bitte gebe einen Namen ein.");
         return; // Funktion wird beendet
     }
 
     oldName = newName;
-    newName = addAnrede(newnameInputValue, isAnredeFrau, isFormellChecked);
+    newName = addAnrede(nachname, isAnredeFrau, isFormellChecked);
 
     // create Object Entry
     const historyObject = {
-        name: newnameInputValue,
+        name: nachname,
         isFormell: isFormellChecked,
         isAnredeFrau,
         anrede: newName
@@ -74,16 +74,16 @@ anredeForm.addEventListener("submit", (ev)=>{
     changeName();
 })
 
-const previewInputs = ["#isfemale", "#isformell", "#newname_input"];
+const previewInputs = ["#isfemale", "#isformell", "#nachname", "#vorname"];
 
 previewInputs.forEach((inputid)=>{
     document.querySelector(inputid).addEventListener("input",()=>{
 
     const isAnredeFrau = document.querySelector("#isfemale").checked
     const isFormellChecked = document.querySelector("#isformell").checked
-    const newnameInputValue = document.querySelector("#newname_input").value;
+    const nachname = document.querySelector("#nachname").value;
 
-    const previewContent = addAnrede(newnameInputValue, isAnredeFrau, isFormellChecked);
+    const previewContent = addAnrede(nachname, isAnredeFrau, isFormellChecked);
     document.querySelector("#preview").innerText = previewContent;
     })
 })

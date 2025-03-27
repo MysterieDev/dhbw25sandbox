@@ -7,7 +7,6 @@ const SUFFIX = " auf: ";
 let nameHistory = [];
 
 function changeName() {
-
     const isAnredeFrau = document.querySelector("#isfemale").checked
     const isFormellChecked = document.querySelector("#isformell").checked
     const nachname = document.querySelector("#nachname").value;
